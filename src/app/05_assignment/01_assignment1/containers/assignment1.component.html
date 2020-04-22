@@ -8,6 +8,20 @@
     <li class="list-group-item">Display the result on the page via string interpolation</li>
   </ul>
   <div class="container your-code">
-    <h6>Remove this &lt;h3&gt; and create your HTML here</h6>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Text Message</span>
+      </div>
+      <input #assignment1 type="text" (input)="handler1(assignment1.value)" class="form-control" placeholder="Enter text here..." aria-describedby="basic-addon1">
+    </div>
+    <div class="alert alert-success" *ngIf="textMessage && textMessage.length > 0; else noTextMessage" role="alert">
+      {{textMessage}}
+    </div>
   </div>
 </div>
+
+<ng-template #noTextMessage>
+  <div class="alert alert-danger" role="alert">
+   No text entered
+  </div>
+</ng-template>
